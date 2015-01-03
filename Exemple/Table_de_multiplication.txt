@@ -1,0 +1,12 @@
+Debut
+	i <- 0
+	j <- 0
+	resultat <- 0
+	
+	Pour i = 1, i <= 10, i++
+		Pour j = 1, j <= 10, j++
+			resultat = i * j
+			Afficher entier resultat
+		Fin Boucle
+	Fin Boucle 
+Fin

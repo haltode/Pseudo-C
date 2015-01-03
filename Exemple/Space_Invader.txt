@@ -1,0 +1,38 @@
+Debut
+	Tableau invader[6] <- "    @@  @@    ", "  @@@@@@@@@@  ", "  @@()@@  @@  ", "  @@  @@()@@  ", "@@@@@@@@@@@@@@", "@@  @@  @@  @@"
+	
+	x <- 0
+	y <- 0
+	tmp <- 0
+	i <- 0
+	
+	Init Aleatoire
+	
+	Pour , ,
+	
+		Effacer
+		
+		x = Aleatoire % 66
+		y = Aleatoire % 66
+		tmp = y
+		
+		Tant Que (x-- > 0)
+			Afficher "\n"
+		Fin Boucle
+		
+		Pour i = 0, i < 6, i++
+			
+			Tant Que (tmp-- > 0)
+				Afficher " "
+			Fin Boucle
+			
+			Afficher chaine invader[i]
+			Afficher "\n"
+			
+			tmp = y
+		Fin Boucle
+		
+		Pause 3
+		
+	Fin Boucle
+Fin

@@ -1,0 +1,3 @@
+Debut
+  Afficher "Hello World !\n"
+Fin

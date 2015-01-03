@@ -1,0 +1,23 @@
+Debut
+	nombreMystere <- 0
+	nombreEntre <- 0
+	
+	Init Aleatoire
+	
+	nombreMystere = Aleatoire % 100
+	
+	Afficher "Jeu du + ou - \n\n"
+	
+	Faire
+		Lire entier nombreEntre
+		
+		Si (nombreEntre > nombreMystere)
+			Afficher "C'est moins"
+		Sinon Si (nombreEntre < nombreMystere)
+			Afficher "C'est plus"
+		Sinon
+			Afficher "Bravo le nombre etait bien : "
+			Afficher entier nombreMystere
+		Fin Si
+	Fin Boucle, Tant Que (nombreEntre != nombreMystere)
+Fin

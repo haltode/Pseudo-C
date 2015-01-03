@@ -1,0 +1,11 @@
+Debut
+	franc <- 0
+	Tant Que (franc <= 10)
+		Afficher entier franc
+		Afficher " = "
+		franc = franc / 6.55957
+		Afficher entier franc
+		
+		franc = franc + 0.5
+	Fin Boucle
+Fin
