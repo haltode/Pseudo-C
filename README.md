@@ -1,4 +1,7 @@
-# Compilation/Exécution
+# Pseudo-C
+
+
+## Compilation/Exécution
 
 Pour utiliser le Pseudo-c vous devez compiler le fichier main.c, puis l'exécuter.
 
@@ -14,7 +17,7 @@ Puis :
 ./main
 ```
 
-# Argument
+## Argument
 
 Vous pouvez donner des arguments en entrée du programme pour définir par exemple l'entrée et la sortie, mais aussi pour consulter l'aide.
 
@@ -24,7 +27,7 @@ Vous pouvez préciser le fichier d'entrée et/ou de sortie pour cela il suffit d
 
 Si vous tapez en argument seulement -h, cela vous mènera à l'aide.
 
-## Exemple
+### Exemple
 
 ```bash
 gcc -o main.x main.c ; ./main.x -h
@@ -51,11 +54,11 @@ gcc -o main.x main.c ; ./main.x
 ```
 -> Cette commande vous permet de compiler/exécuter le programme et de laisser l'entrée et la sortie en valeur par défaut (la console).
 
-# Syntaxe et instruction
+## Syntaxe et instruction
 
 Dans le Pseudo-C, il y a plusieurs instructions que vous pouvez utiliser, et une syntaxe à respecter.
 
-## Déclaration et initialisation d'une variable
+### Déclaration et initialisation d'une variable
 
 Pour déclarer une variable, il vous suffit de suivre cette syntaxe :
 
@@ -65,7 +68,7 @@ nom_variable <- valeur_initiale
 
 Où "nom_variable" et "valeur_initiale" sont remplacés par le nom de la variable et par sa valeur d'initialisation. Si vous souhaitez déclarer un entier, il vous suffit de mettre un nombre entier comme valeur. Si vous souhaitez déclarer un flottant, il vous suffit de mettre un nombre flottant avec un '.' à la place de la virgule. Si vous souhaitez déclarer un caractère, il vous suffit de mettre un caractère entre apostrophe. Si vous souhaitez déclarer une chaîne de caractère, il vous suffit de mettre la chaîne de caractère entre guillemet.
 
-## Affecter une valeur à une variable
+### Affecter une valeur à une variable
 
 Pour cela, vous devez respecter la syntaxe suivante :
 
@@ -75,7 +78,7 @@ nom_variable = nouvelle_valeur
 
 Où "nom_variable" et "nouvelle_valeur" sont remplacés par le nom et la nouvelle valeur de la variable. Les règles pour initialiser une variable sont les mêmes que celles pour lui affecter une valeur.
 
-## Afficher du texte ou une variable
+### Afficher du texte ou une variable
 
 Pour afficher du texte, il faut respecter la syntaxe :
 
@@ -93,7 +96,7 @@ Afficher type_variable nom_variable
 
 Où "type_variable" et "nom_variable" sont remplacés par le type de la variable à afficher, et le nom de la variable.
 
-## Lire depuis l'entrée
+### Lire depuis l'entrée
 
 Pour lire depuis l'entrée il faut respecter la syntaxe :
 
@@ -103,7 +106,7 @@ Lire type_variable nom_variable
 
 Où "type_variable" et "nom_variable" sont remplacés par le type de la variable dans laquelle l'entrée va être lu, et le nom de la variable.
 
-## Condition
+### Condition
 
 Pour effectuer une condition (un test), il faut respecter la syntaxe :
 
@@ -140,7 +143,7 @@ Sinon
 Fin Si
 ```
 
-## Boucle
+### Boucle
 
 Pour effectuer une boucle, il faut respecter la syntaxe :
 
@@ -172,7 +175,7 @@ Fin Boucle, Tant Que (condition)
 
 Où "condition" et "INSTRUCTIONS" sont remplacés par la condition à respecter pour entrer dans le bloc `Faire`, et les instructions à réaliser dans le bloc `Faire`. Cette boucle parcourt au moins une fois les INSTRUCTIONS.
 
-## Tableau
+### Tableau
 
 Vous pouvez déclarer un tableau grâce à la syntaxe suivante :
 
@@ -198,9 +201,9 @@ Afficher entier boucle[i]
 
 Ici le tableau boucle est un tableau contenant des entiers.
 
-## Autres
+### Autres
 
-### Aléatoire
+#### Aléatoire
 
 Pour utiliser un système générant des nombres pseudo-aleatoires, il faut premièrement initialiser le générateur à l'aide de cette commande :
 
@@ -223,7 +226,7 @@ variable <- Aleatoire
 
 Vous devez déclarer la variable puis lui affecter la valeur que vous souhaitez.
 
-### Pause
+#### Pause
 
 Vous pouvez effectuer une pause dans votre programme en appelant la fonction `Pause` et en précisant le nombre de seconde durant lequel le programme va devoir attendre :
 
@@ -233,7 +236,7 @@ Pause 3
 
 Cette ligne va mettre en pause votre programme pendant 3 secondes.
 
-### Effacer
+#### Effacer
 
 Vous pouvez effacer l'écran en appelant la fonction `Effacer` :
 
