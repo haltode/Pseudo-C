@@ -1,9 +1,12 @@
 # Pseudo-C
 
+*Date du projet : Avril 2013*
+
+Pseudo-C est un traducteur/interpréteur de pseudo-code en langage C.
 
 ## Compilation/Exécution
 
-Pour utiliser le Pseudo-c vous devez compiler le fichier main.c, puis l'exécuter.
+Pour utiliser le Pseudo-C vous devez compiler le fichier main.c, puis l'exécuter.
 
 Pour cela placez vous dans le dossier Pseudo-C et effectuez cette commande :
 
