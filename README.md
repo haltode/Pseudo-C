@@ -1,14 +1,51 @@
 # Pseudo-C
 
-*Date du projet : Avril 2013*
+*Date du projet : avril 2013*
 
-Pseudo-C est un traducteur/interpréteur de pseudo-code en langage C.
+## Principe
+
+Le Pseudo-C est un **traducteur**/**interpréteur** permettant de transformer du pseudo-code (l'entrée) directement en langage C (la sortie).
+
+Le Pseudo-C permet de traduire des programmes entiers pouvant contenir :
+
+- Des variables (entiers, flottants, caractères, et chaînes de caractères)
+- Des tableaux (de n'importe quels types de variables)
+- Des appels à des fonctions (pour lire, écrire, etc.)
+- Des conditions
+- Des boucles
+- Des déclarations/affectations
+
+Voici par exemple le fameux programme affichant "Hello World !" en pseudo-code (entrée) :
+
+```nohighlight
+Debut
+  Afficher "Hello World !\n"
+Fin
+```
+
+Et voici le fichier en C obtenu (sortie) :
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+
+int main(void)
+{
+    printf("Hello World !\n");
+    return 0;
+}
+```
+
+Le Pseudo-C inclut une gestion des erreurs dans l'entrée, ainsi qu'un système de paramètre permettant de choisir le mode de l'entrée et le mode de sortie (depuis un fichier ou directement dans la console).
 
 ## Compilation/Exécution
 
 Pour utiliser le Pseudo-C vous devez compiler le fichier main.c, puis l'exécuter.
 
-Pour cela placez vous dans le dossier Pseudo-C et effectuez cette commande :
+Pour cela placez-vous dans le dossier Pseudo-C et effectuez cette commande :
 
 ```bash
 gcc main.c -o main
@@ -22,40 +59,19 @@ Puis :
 
 ## Argument
 
-Vous pouvez donner des arguments en entrée du programme pour définir par exemple l'entrée et la sortie, mais aussi pour consulter l'aide.
-
-Si vous ne précisez aucun argument, l'entrée se fera sur la console elle même, ainsi que la sortie.
-
-Vous pouvez préciser le fichier d'entrée et/ou de sortie pour cela il suffit de taper la commande pour compiler/exécuter le fichier, puis de rajouter à la fin le nom de votre fichier d'entrée et le nom de votre fichier de sortie. Vous pouvez aussi indiquer un seul des deux fichiers, dans ce cas-là il faut écrire un '-' pour le fichier non indiqué.
-
-Si vous tapez en argument seulement -h, cela vous mènera à l'aide.
-
-### Exemple
+Vous pouvez donner des arguments en entrée du programme pour définir par exemple l'entrée et la sortie :
 
 ```bash
-gcc -o main.x main.c ; ./main.x -h
+./main [ENTREE] [SORTIE]
 ```
--> Cette commande vous permet de consulter l'aide.
+
+Où `ENTREE` est le fichier d'entrée (ou un `-` si l'entrée se fait dans la console), et `SORTIE` le fichier de sortie (ou `-` pour une sortie directement dans la console).
+
+Pour afficher l'aide :
 
 ```bash
-gcc -o main.x main.c ; ./main.x entree.txt sortie.txt
+./main -h
 ```
--> Cette commande vous permet de définir l'entrée du programme par le fichier entree.txt, et la sortie sortie.txt. Cela signifie que le code source se trouve dans le fichier entree.txt et le code en langage C se trouvera dans le fichier sortie.txt.
-
-```bash
-gcc -o main.x main.c ; ./main.x entree.txt -
-```
--> Cette commande vous permet de définir l'entrée du programme par le fichier entree.txt puis de laisser la sortie sur la console.
-
-```bash
-gcc -o main.x main.c ; ./main.x - sortie.txt
-```
--> Cette commande vous permet de définir la sortie du programme par le fichier sortie.txt et de laisser l’entrée sur la console.
-
-```bash
-gcc -o main.x main.c ; ./main.x
-```
--> Cette commande vous permet de compiler/exécuter le programme et de laisser l'entrée et la sortie en valeur par défaut (la console).
 
 ## Syntaxe et instruction
 
@@ -63,78 +79,54 @@ Dans le Pseudo-C, il y a plusieurs instructions que vous pouvez utiliser, et une
 
 ### Déclaration et initialisation d'une variable
 
-Pour déclarer une variable, il vous suffit de suivre cette syntaxe :
-
 ```
 nom_variable <- valeur_initiale
 ```
 
-Où "nom_variable" et "valeur_initiale" sont remplacés par le nom de la variable et par sa valeur d'initialisation. Si vous souhaitez déclarer un entier, il vous suffit de mettre un nombre entier comme valeur. Si vous souhaitez déclarer un flottant, il vous suffit de mettre un nombre flottant avec un '.' à la place de la virgule. Si vous souhaitez déclarer un caractère, il vous suffit de mettre un caractère entre apostrophe. Si vous souhaitez déclarer une chaîne de caractère, il vous suffit de mettre la chaîne de caractère entre guillemet.
+Le type de la variable est automatiquement défini en fonction de `valeur_initiale`.
 
 ### Affecter une valeur à une variable
-
-Pour cela, vous devez respecter la syntaxe suivante :
 
 ```
 nom_variable = nouvelle_valeur
 ```
 
-Où "nom_variable" et "nouvelle_valeur" sont remplacés par le nom et la nouvelle valeur de la variable. Les règles pour initialiser une variable sont les mêmes que celles pour lui affecter une valeur.
-
 ### Afficher du texte ou une variable
-
-Pour afficher du texte, il faut respecter la syntaxe :
 
 ```
 Afficher "texte"
 ```
 
-Où "texte" est le texte que vous souhaitez afficher.
-
-Pour afficher une variable, il faut respecter la syntaxe :
+Pour afficher une variable, indiquez le type et le nom de la variable à la place du texte :
 
 ```
 Afficher type_variable nom_variable
 ```
 
-Où "type_variable" et "nom_variable" sont remplacés par le type de la variable à afficher, et le nom de la variable.
-
 ### Lire depuis l'entrée
-
-Pour lire depuis l'entrée il faut respecter la syntaxe :
 
 ```
 Lire type_variable nom_variable
 ```
 
-Où "type_variable" et "nom_variable" sont remplacés par le type de la variable dans laquelle l'entrée va être lu, et le nom de la variable.
-
 ### Condition
-
-Pour effectuer une condition (un test), il faut respecter la syntaxe :
 
 ```
 Si (condition)
 	INSTRUCTIONS
 ```
 
-Où "condition" et "INSTRUCTIONS" sont remplacés par la condition à respecter pour entrer dans le bloc `Si`, et les instructions à réaliser dans le bloc `Si`.
-
-Il existe aussi :
-
 ```
 Sinon Si (condition)
 	INSTRUCTIONS
 ```
-
-Et :
 
 ```
 Sinon
 	INSTRUCTIONS
 ```
 
-A la fin de chaque "bloc" de condition, vous devez y mettre un `Fin Si` :
+A la fin de chaque bloc de condition, vous devez y mettre un `Fin Si` :
 
 ```
 Si (condition1)
@@ -148,17 +140,11 @@ Fin Si
 
 ### Boucle
 
-Pour effectuer une boucle, il faut respecter la syntaxe :
-
 ```
 Tant Que (condition)
 	INSTRUCTIONS
 Fin Boucle
 ```
-
-Où "condition" et "INSTRUCTIONS" sont remplacés par la condition à respecter pour entrer dans le bloc `Tant Que`, et les instructions à réaliser dans le bloc `Tant Que`.
-
-Il existe aussi :
 
 ```
 Pour initialisation, condition, incrémentation
@@ -166,43 +152,29 @@ Pour initialisation, condition, incrémentation
 Fin Boucle
 ```
 
-Où "initialisation", "condition", "incrémentation" et "INSTRUCTIONS" sont remplacés par l'initialisation d'une variable, la condition à respecter pour entrer dans le bloc `Pour`, l'incrémentation de la variable, et les instructions à réaliser dans le bloc `Pour`.
-
-Et aussi :
-
 ```
 Faire
 	INSTRUCTIONS
 Fin Boucle, Tant Que (condition)
 ```
 
-Où "condition" et "INSTRUCTIONS" sont remplacés par la condition à respecter pour entrer dans le bloc `Faire`, et les instructions à réaliser dans le bloc `Faire`. Cette boucle parcourt au moins une fois les INSTRUCTIONS.
-
 ### Tableau
-
-Vous pouvez déclarer un tableau grâce à la syntaxe suivante :
 
 ```
 Tableau nom_tableau[taille_tableau] <- valeur_initiale
 ```
 
-Où "nom_tableau", "taille_tableau" et "valeur_initiale" sont remplacés par le nom du tableau, sa taille et ses différentes valeurs initiales qui doivent être du même type.
-
-Pour utiliser un tableau il faut utiliser la syntaxe suivante :
+Pour utiliser un tableau :
 
 ```
 nom_tableau[index]
 ```
 
-Où "nom_tableau" et "index" sont remplacés par le nom du tableau et l'index de l'élément de ce tableau auquel on veut accéder.
-
-Par exemple pour afficher l'élément `i` du tableau `boucle` :
+Par exemple pour afficher un élément `i` du tableau :
 
 ```
-Afficher entier boucle[i]
+Afficher entier tableau[i]
 ```
-
-Ici le tableau boucle est un tableau contenant des entiers.
 
 ### Autres
 
@@ -214,34 +186,21 @@ Pour utiliser un système générant des nombres pseudo-aleatoires, il faut prem
 Init Aleatoire
 ```
 
-Puis vous pouvez utiliser la fonction `Aleatoire` comme ceci par exemple :
+Puis vous pouvez utiliser la fonction `Aleatoire` comme ceci :
 
 ```
 entier = Aleatoire
 ```
 
-Vous ne pouvez pas déclarer une variable contenant directement un nombre 
-aléatoire, je m'explique, vous ne pouvez pas faire ceci :
-
-```
-variable <- Aleatoire
-```
-
-Vous devez déclarer la variable puis lui affecter la valeur que vous souhaitez.
-
 #### Pause
 
-Vous pouvez effectuer une pause dans votre programme en appelant la fonction `Pause` et en précisant le nombre de seconde durant lequel le programme va devoir attendre :
+Vous pouvez effectuer une pause dans votre programme en appelant la fonction `Pause` et en précisant le nombre de secondes durant lequel le programme va devoir attendre :
 
 ```
 Pause 3
 ```
 
-Cette ligne va mettre en pause votre programme pendant 3 secondes.
-
-#### Effacer
-
-Vous pouvez effacer l'écran en appelant la fonction `Effacer` :
+#### Effacer l'écran
 
 ```
 Effacer
